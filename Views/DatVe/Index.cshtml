@@ -1,0 +1,92 @@
+﻿@model IEnumerable<PROJECT2.Models.DatVe>
+
+@{
+    ViewBag.Title = "Danh sách vé";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center my-4">Danh sách vé</h2>
+
+<p class="text-right">
+    <a href="/DatVes/create" class="btn btn-primary my-3">Thêm mới vé</a>
+</p>
+
+<table class="table table-striped table-bordered table-hover text-center">
+    <thead class="thead-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.NgayDat)</th>
+            <th>@Html.DisplayNameFor(model => model.SoLuongVe)</th>
+            <th>@Html.DisplayNameFor(model => model.TongTien)</th>
+            <th>@Html.DisplayNameFor(model => model.TrangThai)</th>
+            <th>@Html.DisplayNameFor(model => model.ChuyenBay.SoHieuChuyenBay)</th>
+            <th>@Html.DisplayNameFor(model => model.KhachHang.HoVaTen)</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.NgayDat)</td>
+                <td>@Html.DisplayFor(modelItem => item.SoLuongVe)</td>
+                <td>@Html.DisplayFor(modelItem => item.TongTien)</td>
+                <td>@Html.DisplayFor(modelItem => item.TrangThai)</td>
+                <td>@Html.DisplayFor(modelItem => item.ChuyenBay.SoHieuChuyenBay)</td>
+                <td>@Html.DisplayFor(modelItem => item.KhachHang.HoVaTen)</td>
+                <td>
+                    <a href="@Url.Action("Edit", "DatVes", new { id = item.MaDatVe })" class="btn btn-sm btn-warning">Sửa</a>
+                    <a href="@Url.Action("Details", "DatVes", new { id = item.MaDatVe })" class="btn btn-sm btn-info">Chi tiết</a>
+                    <a href="@Url.Action("Delete", "DatVes", new { id = item.MaDatVe })" class="btn btn-sm btn-danger">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    /* Căn chỉnh và thay đổi màu nền cho bảng */
+    .table {
+        font-size: 1rem;
+    }
+
+    th, td {
+        padding: 10px;
+        vertical-align: middle;
+    }
+
+    /* Màu nền tiêu đề */
+    .thead-dark {
+        background-color: #343a40;
+        color: white;
+    }
+
+    /* Hiệu ứng hover cho các hàng */
+    .table-hover tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    /* Tăng kích thước nút hành động và thêm hiệu ứng */
+    .btn-sm {
+        margin: 0 5px;
+    }
+
+    .btn-warning {
+        background-color: #ffc107;
+        border-color: #ffc107;
+    }
+
+    .btn-info {
+        background-color: #17a2b8;
+        border-color: #17a2b8;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+
+    /* Tăng độ rộng cho các cột để dễ nhìn hơn */
+    .table th, .table td {
+        text-align: center;
+    }
+</style>

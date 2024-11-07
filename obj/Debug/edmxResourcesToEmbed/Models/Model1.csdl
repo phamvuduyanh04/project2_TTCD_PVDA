@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLVEMAYBAYModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ChuyenBay">
+    <Key>
+      <PropertyRef Name="MaChuyenBay" />
+    </Key>
+    <Property Name="MaChuyenBay" Type="Int32" Nullable="false" />
+    <Property Name="SoHieuChuyenBay" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaSanBayDi" Type="Int32" Nullable="false" />
+    <Property Name="MaSanBayDen" Type="Int32" Nullable="false" />
+    <Property Name="GioKhoiHanh" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="GioDen" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="HangHangKhong" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Gia" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="SoGheTrong" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="SanBay" Relationship="Self.FK__ChuyenBay__MaSan__3A81B327" FromRole="ChuyenBay" ToRole="SanBay" />
+    <NavigationProperty Name="SanBay1" Relationship="Self.FK__ChuyenBay__MaSan__3B75D760" FromRole="ChuyenBay" ToRole="SanBay" />
+    <NavigationProperty Name="DatVes" Relationship="Self.FK__DatVe__MaChuyenB__45F365D3" FromRole="ChuyenBay" ToRole="DatVe" />
+  </EntityType>
+  <EntityType Name="DatVe">
+    <Key>
+      <PropertyRef Name="MaDatVe" />
+    </Key>
+    <Property Name="MaDatVe" Type="Int32" Nullable="false" />
+    <Property Name="MaKhachHang" Type="Int32" Nullable="false" />
+    <Property Name="MaChuyenBay" Type="Int32" Nullable="false" />
+    <Property Name="NgayDat" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SoLuongVe" Type="Int32" Nullable="false" />
+    <Property Name="TongTien" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="TrangThai" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ChuyenBay" Relationship="Self.FK__DatVe__MaChuyenB__45F365D3" FromRole="DatVe" ToRole="ChuyenBay" />
+    <NavigationProperty Name="KhachHang" Relationship="Self.FK__DatVe__MaKhachHa__44FF419A" FromRole="DatVe" ToRole="KhachHang" />
+    <NavigationProperty Name="ThanhToans" Relationship="Self.FK__ThanhToan__MaDat__4CA06362" FromRole="DatVe" ToRole="ThanhToan" />
+  </EntityType>
+  <EntityType Name="KhachHang">
+    <Key>
+      <PropertyRef Name="MaKhachHang" />
+    </Key>
+    <Property Name="MaKhachHang" Type="Int32" Nullable="false" />
+    <Property Name="HoVaTen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SoDienThoai" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="GioiTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="DatVes" Relationship="Self.FK__DatVe__MaKhachHa__44FF419A" FromRole="KhachHang" ToRole="DatVe" />
+  </EntityType>
+  <EntityType Name="SanBay">
+    <Key>
+      <PropertyRef Name="MaSanBay" />
+    </Key>
+    <Property Name="MaSanBay" Type="Int32" Nullable="false" />
+    <Property Name="TenSanBay" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ThanhPho" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="QuocGia" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaSanBayKyHieu" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="ChuyenBays" Relationship="Self.FK__ChuyenBay__MaSan__3A81B327" FromRole="SanBay" ToRole="ChuyenBay" />
+    <NavigationProperty Name="ChuyenBays1" Relationship="Self.FK__ChuyenBay__MaSan__3B75D760" FromRole="SanBay" ToRole="ChuyenBay" />
+  </EntityType>
+  <EntityType Name="ThanhToan">
+    <Key>
+      <PropertyRef Name="MaThanhToan" />
+    </Key>
+    <Property Name="MaThanhToan" Type="Int32" Nullable="false" />
+    <Property Name="MaDatVe" Type="Int32" Nullable="false" />
+    <Property Name="NgayThanhToan" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SoTien" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="PhuongThucThanhToan" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TrangThai" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="DatVe" Relationship="Self.FK__ThanhToan__MaDat__4CA06362" FromRole="ThanhToan" ToRole="DatVe" />
+  </EntityType>
+  <Association Name="FK__ChuyenBay__MaSan__3A81B327">
+    <End Role="SanBay" Type="Self.SanBay" Multiplicity="1" />
+    <End Role="ChuyenBay" Type="Self.ChuyenBay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanBay">
+        <PropertyRef Name="MaSanBay" />
+      </Principal>
+      <Dependent Role="ChuyenBay">
+        <PropertyRef Name="MaSanBayDi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ChuyenBay__MaSan__3B75D760">
+    <End Role="SanBay" Type="Self.SanBay" Multiplicity="1" />
+    <End Role="ChuyenBay" Type="Self.ChuyenBay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanBay">
+        <PropertyRef Name="MaSanBay" />
+      </Principal>
+      <Dependent Role="ChuyenBay">
+        <PropertyRef Name="MaSanBayDen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DatVe__MaChuyenB__45F365D3">
+    <End Role="ChuyenBay" Type="Self.ChuyenBay" Multiplicity="1" />
+    <End Role="DatVe" Type="Self.DatVe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChuyenBay">
+        <PropertyRef Name="MaChuyenBay" />
+      </Principal>
+      <Dependent Role="DatVe">
+        <PropertyRef Name="MaChuyenBay" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DatVe__MaKhachHa__44FF419A">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="1" />
+    <End Role="DatVe" Type="Self.DatVe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="MaKhachHang" />
+      </Principal>
+      <Dependent Role="DatVe">
+        <PropertyRef Name="MaKhachHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ThanhToan__MaDat__4CA06362">
+    <End Role="DatVe" Type="Self.DatVe" Multiplicity="1" />
+    <End Role="ThanhToan" Type="Self.ThanhToan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DatVe">
+        <PropertyRef Name="MaDatVe" />
+      </Principal>
+      <Dependent Role="ThanhToan">
+        <PropertyRef Name="MaDatVe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLVEMAYBAYEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ChuyenBays" EntityType="Self.ChuyenBay" />
+    <EntitySet Name="DatVes" EntityType="Self.DatVe" />
+    <EntitySet Name="KhachHangs" EntityType="Self.KhachHang" />
+    <EntitySet Name="SanBays" EntityType="Self.SanBay" />
+    <EntitySet Name="ThanhToans" EntityType="Self.ThanhToan" />
+    <AssociationSet Name="FK__ChuyenBay__MaSan__3A81B327" Association="Self.FK__ChuyenBay__MaSan__3A81B327">
+      <End Role="SanBay" EntitySet="SanBays" />
+      <End Role="ChuyenBay" EntitySet="ChuyenBays" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ChuyenBay__MaSan__3B75D760" Association="Self.FK__ChuyenBay__MaSan__3B75D760">
+      <End Role="SanBay" EntitySet="SanBays" />
+      <End Role="ChuyenBay" EntitySet="ChuyenBays" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DatVe__MaChuyenB__45F365D3" Association="Self.FK__DatVe__MaChuyenB__45F365D3">
+      <End Role="ChuyenBay" EntitySet="ChuyenBays" />
+      <End Role="DatVe" EntitySet="DatVes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DatVe__MaKhachHa__44FF419A" Association="Self.FK__DatVe__MaKhachHa__44FF419A">
+      <End Role="KhachHang" EntitySet="KhachHangs" />
+      <End Role="DatVe" EntitySet="DatVes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ThanhToan__MaDat__4CA06362" Association="Self.FK__ThanhToan__MaDat__4CA06362">
+      <End Role="DatVe" EntitySet="DatVes" />
+      <End Role="ThanhToan" EntitySet="ThanhToans" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,88 @@
+﻿@model IEnumerable<PROJECT2.Models.SanBay>
+
+@{
+    ViewBag.Title = "Danh sách sân bay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center my-4">Danh sách sân bay</h2>
+
+<p class="text-right">
+    <a href="/SanBays/create" class="btn btn-primary my-3">Thêm mới sân bay</a>
+</p>
+
+<table class="table table-striped table-bordered table-hover text-center">
+    <thead class="thead-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.TenSanBay)</th>
+            <th>@Html.DisplayNameFor(model => model.ThanhPho)</th>
+            <th>@Html.DisplayNameFor(model => model.QuocGia)</th>
+            <th>@Html.DisplayNameFor(model => model.MaSanBayKyHieu)</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.TenSanBay)</td>
+                <td>@Html.DisplayFor(modelItem => item.ThanhPho)</td>
+                <td>@Html.DisplayFor(modelItem => item.QuocGia)</td>
+                <td>@Html.DisplayFor(modelItem => item.MaSanBayKyHieu)</td>
+                <td>
+                    <a href="@Url.Action("Edit", "SanBays", new { id = item.MaSanBay })" class="btn btn-sm btn-warning">Sửa</a>
+                    <a href="@Url.Action("Details", "SanBays", new { id = item.MaSanBay })" class="btn btn-sm btn-info">Chi tiết</a>
+                    <a href="@Url.Action("Delete", "SanBays", new { id = item.MaSanBay })" class="btn btn-sm btn-danger">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    /* Tăng kích thước chữ và padding cho bảng */
+    .table {
+        font-size: 1rem;
+    }
+
+    th, td {
+        padding: 10px;
+        vertical-align: middle;
+    }
+
+    /* Màu nền tiêu đề */
+    .thead-dark {
+        background-color: #343a40;
+        color: white;
+    }
+
+    /* Hiệu ứng hover cho các hàng */
+    .table-hover tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    /* Tăng kích thước và màu sắc của nút hành động */
+    .btn-sm {
+        margin: 0 5px;
+    }
+
+    .btn-warning {
+        background-color: #ffc107;
+        border-color: #ffc107;
+    }
+
+    .btn-info {
+        background-color: #17a2b8;
+        border-color: #17a2b8;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+
+    /* Căn giữa các ô trong bảng */
+    .table th, .table td {
+        text-align: center;
+    }
+</style>

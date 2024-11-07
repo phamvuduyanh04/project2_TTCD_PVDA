@@ -1,0 +1,90 @@
+﻿@model IEnumerable<PROJECT2.Models.ThanhToan>
+
+@{
+    ViewBag.Title = "Thanh Toan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center my-4">Danh sách Thanh Toán</h2>
+
+<p class="text-right">
+    <a href="/ThanhToans/create" class="btn btn-primary my-3">Thêm mới thanh toán</a>
+</p>
+
+<table class="table table-striped table-bordered table-hover text-center">
+    <thead class="thead-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.NgayThanhToan)</th>
+            <th>@Html.DisplayNameFor(model => model.SoTien)</th>
+            <th>@Html.DisplayNameFor(model => model.PhuongThucThanhToan)</th>
+            <th>@Html.DisplayNameFor(model => model.TrangThai)</th>
+            <th>@Html.DisplayNameFor(model => model.DatVe.TrangThai)</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.NgayThanhToan)</td>
+                <td>@Html.DisplayFor(modelItem => item.SoTien)</td>
+                <td>@Html.DisplayFor(modelItem => item.PhuongThucThanhToan)</td>
+                <td>@Html.DisplayFor(modelItem => item.TrangThai)</td>
+                <td>@Html.DisplayFor(modelItem => item.DatVe.TrangThai)</td>
+                <td>
+                    <a href="@Url.Action("Edit", "ThanhToans", new { id = item.MaThanhToan })" class="btn btn-sm btn-warning">Sửa</a>
+                    <a href="@Url.Action("Details", "ThanhToans", new { id = item.MaThanhToan })" class="btn btn-sm btn-info">Chi tiết</a>
+                    <a href="@Url.Action("Delete", "ThanhToans", new { id = item.MaThanhToan })" class="btn btn-sm btn-danger">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    /* Tăng kích thước chữ và padding cho bảng */
+    .table {
+        font-size: 1rem;
+    }
+
+    th, td {
+        padding: 10px;
+        vertical-align: middle;
+    }
+
+    /* Màu nền tiêu đề */
+    .thead-dark {
+        background-color: #343a40;
+        color: white;
+    }
+
+    /* Hiệu ứng hover cho các hàng */
+    .table-hover tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    /* Tăng kích thước và màu sắc của nút hành động */
+    .btn-sm {
+        margin: 0 5px;
+    }
+
+    .btn-warning {
+        background-color: #ffc107;
+        border-color: #ffc107;
+    }
+
+    .btn-info {
+        background-color: #17a2b8;
+        border-color: #17a2b8;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+
+    /* Căn giữa các ô trong bảng */
+    .table th, .table td {
+        text-align: center;
+    }
+</style>

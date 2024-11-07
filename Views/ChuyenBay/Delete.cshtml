@@ -1,0 +1,89 @@
+﻿@model PROJECT2.Models.ChuyenBay
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ChuyenBay</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SoHieuChuyenBay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoHieuChuyenBay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GioKhoiHanh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GioKhoiHanh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GioDen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GioDen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HangHangKhong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HangHangKhong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoGheTrong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoGheTrong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SanBay.TenSanBay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SanBay.TenSanBay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SanBay1.TenSanBay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SanBay1.TenSanBay)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

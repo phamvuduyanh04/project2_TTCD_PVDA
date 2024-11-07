@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QLVEMAYBAYModelStoreContainer" CdmEntityContainer="QLVEMAYBAYEntities">
+    <EntitySetMapping Name="ChuyenBays">
+      <EntityTypeMapping TypeName="QLVEMAYBAYModel.ChuyenBay">
+        <MappingFragment StoreEntitySet="ChuyenBay">
+          <ScalarProperty Name="MaChuyenBay" ColumnName="MaChuyenBay" />
+          <ScalarProperty Name="SoHieuChuyenBay" ColumnName="SoHieuChuyenBay" />
+          <ScalarProperty Name="MaSanBayDi" ColumnName="MaSanBayDi" />
+          <ScalarProperty Name="MaSanBayDen" ColumnName="MaSanBayDen" />
+          <ScalarProperty Name="GioKhoiHanh" ColumnName="GioKhoiHanh" />
+          <ScalarProperty Name="GioDen" ColumnName="GioDen" />
+          <ScalarProperty Name="HangHangKhong" ColumnName="HangHangKhong" />
+          <ScalarProperty Name="Gia" ColumnName="Gia" />
+          <ScalarProperty Name="SoGheTrong" ColumnName="SoGheTrong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DatVes">
+      <EntityTypeMapping TypeName="QLVEMAYBAYModel.DatVe">
+        <MappingFragment StoreEntitySet="DatVe">
+          <ScalarProperty Name="MaDatVe" ColumnName="MaDatVe" />
+          <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
+          <ScalarProperty Name="MaChuyenBay" ColumnName="MaChuyenBay" />
+          <ScalarProperty Name="NgayDat" ColumnName="NgayDat" />
+          <ScalarProperty Name="SoLuongVe" ColumnName="SoLuongVe" />
+          <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KhachHangs">
+      <EntityTypeMapping TypeName="QLVEMAYBAYModel.KhachHang">
+        <MappingFragment StoreEntitySet="KhachHang">
+          <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
+          <ScalarProperty Name="HoVaTen" ColumnName="HoVaTen" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SanBays">
+      <EntityTypeMapping TypeName="QLVEMAYBAYModel.SanBay">
+        <MappingFragment StoreEntitySet="SanBay">
+          <ScalarProperty Name="MaSanBay" ColumnName="MaSanBay" />
+          <ScalarProperty Name="TenSanBay" ColumnName="TenSanBay" />
+          <ScalarProperty Name="ThanhPho" ColumnName="ThanhPho" />
+          <ScalarProperty Name="QuocGia" ColumnName="QuocGia" />
+          <ScalarProperty Name="MaSanBayKyHieu" ColumnName="MaSanBayKyHieu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThanhToans">
+      <EntityTypeMapping TypeName="QLVEMAYBAYModel.ThanhToan">
+        <MappingFragment StoreEntitySet="ThanhToan">
+          <ScalarProperty Name="MaThanhToan" ColumnName="MaThanhToan" />
+          <ScalarProperty Name="MaDatVe" ColumnName="MaDatVe" />
+          <ScalarProperty Name="NgayThanhToan" ColumnName="NgayThanhToan" />
+          <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+          <ScalarProperty Name="PhuongThucThanhToan" ColumnName="PhuongThucThanhToan" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

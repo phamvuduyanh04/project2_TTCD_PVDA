@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f6a42a9f154e450e8c7e8d620b25742c" Name="Diagram1">
+        <EntityTypeShape EntityType="QLVEMAYBAYModel.ChuyenBay" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLVEMAYBAYModel.DatVe" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLVEMAYBAYModel.KhachHang" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLVEMAYBAYModel.SanBay" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLVEMAYBAYModel.ThanhToan" Width="1.5" PointX="7.5" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="QLVEMAYBAYModel.FK__ChuyenBay__MaSan__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="QLVEMAYBAYModel.FK__ChuyenBay__MaSan__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="QLVEMAYBAYModel.FK__DatVe__MaChuyenB__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="QLVEMAYBAYModel.FK__DatVe__MaKhachHa__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="QLVEMAYBAYModel.FK__ThanhToan__MaDat__4CA06362" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

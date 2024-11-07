@@ -1,0 +1,83 @@
+﻿@model PROJECT2.Models.ChuyenBay
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ChuyenBay</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SoHieuChuyenBay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoHieuChuyenBay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GioKhoiHanh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GioKhoiHanh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GioDen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GioDen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HangHangKhong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HangHangKhong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoGheTrong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoGheTrong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SanBay.TenSanBay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SanBay.TenSanBay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SanBay1.TenSanBay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SanBay1.TenSanBay)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaChuyenBay }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
